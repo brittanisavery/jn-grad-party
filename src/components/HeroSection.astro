@@ -1,163 +1,86 @@
 <section id="hero" class="hero">
-    <div class="section-container hero-container">
-        <div class="hero-content">
-            <h1 class="hero-title">Home, just the way you like.</h1>
-            <p class="hero-subtitle">
-                Discover the joy of living in a space that feels truly yours.
-            </p>
-            <div class="hero-cta">
-                <a href="#contact" class="btn btn--primary"
-                    >START TRANSFORMATION</a
-                >
-                <a href="#how-it-works" class="btns--secondary">
-                    <span class="btn--secondary btn--secondary-unhovered">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 384 512"
-                            ><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                            <path
-                                d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80L0 432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
-                            ></path>
-                        </svg>
-                        How It Works?
-                    </span>
-                    <span
-                        class="btn--secondary btn--secondary-hovered"
-                        aria-hidden="true"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 384 512"
-                            ><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                            <path
-                                d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80L0 432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
-                            ></path>
-                        </svg>
-                        How It Works?
-                    </span>
-                </a>
-            </div>
-        </div>
-        <div class="video-wrapper">
-            <video
-                class="media"
-                preload="auto"
-                poster="hero-video-poster.webp"
-                autoplay
-                loop
-                muted
-                playsinline
-                aria-hidden="true"
-            >
-                <source
-                    src="https://res.cloudinary.com/dellp9a4z/video/upload/f_auto,q_auto,vc_vp9,w_1080/v1774623099/ik-video_esc1gl.webm"
-                    type="video/webm"
-                />
-            </video>
-        </div>
+  <div class="section-container hero-container">
+    <div class="hero-content">
+      <h1 class="hero-title">Jeyda's Graduation Celebration</h1>
+      <p class="hero-subtitle">until the #NextChapter</p>
     </div>
-</section>
+    <div class="hero-content">
+      <img
+        src="https://placehold.co/400x600"
+        alt="Jeyda's Graduation Celebration"
+      />
+    </div>
 
-<style>
-    .hero {
+    <style>
+      .hero {
         min-height: 100vh;
         padding-block: 6.688rem var(--px-56);
         display: flex;
         align-items: center;
-    }
+      }
 
-    .hero-container {
+      .hero-container {
         width: 100%;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        display: flex;
+        flex-direction: row;
         gap: var(--px-64);
         align-items: center;
-    }
+        text-align: center;
+      }
 
-    .hero-content {
-        max-width: 37.5rem;
-    }
-
-    .hero-title {
+      .hero-title {
         margin-bottom: var(--px-28);
         font-size: clamp(2.125rem, 6vw, var(--text-xxl));
-        font-weight: 500;
+        font-family: var(--font-gideon-roman);
         line-height: 1.2;
-    }
+      }
 
-    .hero-subtitle {
+      .hero-subtitle {
         font-size: clamp(var(--text-xl), 2vw, var(--text-2xl));
         margin-bottom: var(--px-48);
         line-height: 1.5;
-    }
+      }
 
-    .hero-cta {
-        display: flex;
-        gap: var(--px-16) var(--px-48);
-        flex-wrap: wrap;
-    }
-
-    .btns--secondary {
-        font-weight: 500;
-        margin-top: 0.438rem;
-        height: var(--px-36);
-    }
-
-    .btn--secondary {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: var(--px-8);
-    }
-
-    .btn--secondary svg {
-        height: var(--px-16);
-    }
-
-    .video-wrapper {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-    }
-
-    @media screen and (max-width: 64rem) {
+      @media screen and (max-width: 64rem) {
         .hero-container {
-            gap: var(--px-32);
+          gap: var(--px-32);
         }
 
         .hero-content {
-            max-width: 100%;
+          max-width: 100%;
         }
 
         .hero-title {
-            line-height: 1.3;
+          line-height: 1.3;
         }
-    }
+      }
 
-    @media screen and (max-width: 59.375rem) {
+      @media screen and (max-width: 59.375rem) {
         .hero {
-            min-height: auto;
+          min-height: auto;
         }
 
         .hero-container {
-            grid-template-columns: 1fr;
-            gap: var(--px-32);
+          flex-direction: column;
+          gap: var(--px-32);
         }
 
         .hero-title {
-            margin-bottom: var(--px-24);
+          margin-bottom: var(--px-24);
         }
 
         .hero-subtitle {
-            margin-bottom: var(--px-36);
+          margin-bottom: var(--px-36);
         }
 
         .hero-cta {
-            column-gap: var(--px-32);
+          column-gap: var(--px-32);
         }
 
         .video-wrapper {
-            min-height: 18.75rem;
+          min-height: 18.75rem;
         }
-    }
-</style>
+      }
+    </style>
+  </div>
+</section>

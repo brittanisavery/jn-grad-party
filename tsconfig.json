@@ -4,15 +4,14 @@
   "exclude": ["node_modules", "dist"],
   "compilerOptions": {
     "strictNullChecks": true,
-    "baseUrl": "src",
     "paths": {
-      "@assets/*": ["assets/*"],
-      "@consts": ["consts.ts"],
-      "@components/*": ["components/*"],
-      "@layouts/*": ["layouts/*"],
-      "@pages/*": ["pages/*"],
-      "@styles/*": ["styles/*"],
-      "@utils/*": ["utils/*"]
+      "@assets/*": ["./src/assets/*"],
+      "@consts": ["./src/consts.ts"],
+      "@components/*": ["./src/components/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@utils/*": ["./src/utils/*"]
     }
   }
 }

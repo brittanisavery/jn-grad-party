@@ -4,142 +4,134 @@ import "@styles/_reset.css";
 import "@styles/global.css";
 
 import { Font } from "astro:assets";
-import { SITE, SOCIALS } from "@consts";
+import { SITE } from "@consts";
 import { ClientRouter } from "astro:transitions";
-import Header from "components/Header.astro";
+import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 const {
-    companyName = SITE.COMPANY_NAME,
-    legalName = SITE.LEGAL_NAME,
-    title = `${SITE.COMPANY_NAME}: ${SITE.TITLE}`,
-    description = SITE.DESCRIPTION,
-    canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
-    ogImage = SITE.OG_IMAGE,
-    twitterHandle = SITE.TWITTER?.CREATOR,
+  companyName = SITE.COMPANY_NAME,
+  legalName = SITE.LEGAL_NAME,
+  title = `${SITE.COMPANY_NAME}: ${SITE.TITLE}`,
+  description = SITE.DESCRIPTION,
+  canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
+  ogImage = SITE.OG_IMAGE,
+  twitterHandle = SITE.TWITTER?.CREATOR,
 } = Astro.props;
 
 const socialImageURL = new URL(
-    ogImage ?? SITE.OG_IMAGE ?? "og-image.webp",
-    Astro.url.origin,
+  ogImage ?? SITE.OG_IMAGE ?? "og-image.webp",
+  Astro.url.origin,
 ).href;
 
 const schemaData = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: `${title}`,
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: `${title}`,
+  url: `${canonicalURL}`,
+  description: `${description}`,
+  isPartOf: {
+    "@type": "WebSite",
+    name: `${companyName}`,
     url: `${canonicalURL}`,
-    description: `${description}`,
-    isPartOf: {
-        "@type": "WebSite",
-        name: `${companyName}`,
-        url: `${canonicalURL}`,
-        publisher: {
-            "@type": "Organization",
-            name: `${companyName}`,
-            legalName: legalName,
-            url: `${canonicalURL}`,
-            "@id": `${canonicalURL}`,
-            sameAs: SOCIALS.map((social) => social.HREF),
-        },
+    publisher: {
+      "@type": "Organization",
+      name: `${companyName}`,
+      legalName: legalName,
+      url: `${canonicalURL}`,
+      "@id": `${canonicalURL}`,
+      //sameAs: SOCIALS.map((social) => social.HREF),
     },
+  },
 };
 ---
 
 <!doctype html>
 <html lang=`${SITE.LOCALE ?? "en"}`>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="canonical" href={canonicalURL} />
-        <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
-        <link
-            rel="preload"
-            as="image"
-            href="/hero-video-poster.webp"
-            fetchpriority="high"
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    <!-- Preload fonts -->
+    <Font cssVariable="--font-carlito" />
+    <Font cssVariable="--font-gideon-roman" />
+    <Font cssVariable="--font-kode-mono" />
+
+    <meta name="generator" content={Astro.generator} />
+
+    <ClientRouter />
+
+    <!-- General Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content={legalName} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialImageURL} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content={SITE.TWITTER?.CARD} />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={socialImageURL} />
+    {
+      twitterHandle && (
+        <meta property="twitter:creator" content={twitterHandle} />
+      )
+    }
+
+    <!-- Google JSON-LD Structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+
+    {
+      // If PUBLIC_GOOGLE_SITE_VERIFICATION is set in the environment variable,
+      // include google-site-verification tag in the heading
+      // Learn more: https://support.google.com/webmasters/answer/9008080#meta_tag_verification&zippy=%2Chtml-tag
+      googleSiteVerification && (
+        <meta
+          name="google-site-verification"
+          content={googleSiteVerification}
         />
-        <!-- Preload fonts -->
-        <Font cssVariable="--font-dm-sans" />
+      )
+    }
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
 
-        <meta name="generator" content={Astro.generator} />
-
-        <ClientRouter />
-
-        <!-- General Meta Tags -->
-        <title>{title}</title>
-        <meta name="title" content={title} />
-        <meta name="description" content={description} />
-        <meta name="author" content={legalName} />
-        <link rel="sitemap" href="/sitemap-index.xml" />
-
-        <!-- Open Graph / Facebook -->
-        <meta property="og:url" content={canonicalURL} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:image" content={socialImageURL} />
-
-        <!-- Twitter -->
-        <meta property="twitter:card" content={SITE.TWITTER?.CARD} />
-        <meta property="twitter:url" content={canonicalURL} />
-        <meta property="twitter:title" content={title} />
-        <meta property="twitter:description" content={description} />
-        <meta property="twitter:image" content={socialImageURL} />
-        {
-            twitterHandle && (
-                <meta property="twitter:creator" content={twitterHandle} />
-            )
-        }
-
-        <!-- Google JSON-LD Structured data -->
-        <script
-            type="application/ld+json"
-            set:html={JSON.stringify(schemaData)}
-        />
-
-        {
-            // If PUBLIC_GOOGLE_SITE_VERIFICATION is set in the environment variable,
-            // include google-site-verification tag in the heading
-            // Learn more: https://support.google.com/webmasters/answer/9008080#meta_tag_verification&zippy=%2Chtml-tag
-            googleSiteVerification && (
-                <meta
-                    name="google-site-verification"
-                    content={googleSiteVerification}
-                />
-            )
-        }
-    </head>
-    <body>
-        <a href="#main" class="skip-link">Skip to content</a>
-
-        <Header />
-        <main id="main" tabindex="-1">
-            <slot />
-        </main>
-        <Footer />
-    </body>
+    <Header />
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
 </html>
 
 <style>
-    .skip-link {
-        position: absolute;
-        top: var(--px-10);
-        left: var(--px-8);
-        transform: translateY(-200%);
-        padding: var(--px-12) var(--px-16);
-        border-radius: var(--px-6);
-        color: white;
-        background: #000;
-        z-index: 1001;
-        opacity: 0;
-        transition: opacity var(--transition-short);
-    }
+  .skip-link {
+    position: absolute;
+    top: var(--px-10);
+    left: var(--px-8);
+    transform: translateY(-200%);
+    padding: var(--px-12) var(--px-16);
+    border-radius: var(--px-6);
+    color: white;
+    background: #000;
+    z-index: 1001;
+    opacity: 0;
+    transition: opacity var(--transition-short);
+  }
 
-    .skip-link:focus-visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  .skip-link:focus-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 </style>

@@ -16,19 +16,25 @@ export default defineConfig({
 
   fonts: [
     {
-      provider: fontProviders.local(),
-      name: "DMSans",
-      cssVariable: "--font-dm-sans",
-      options: {
-        variants: [
-          {
-            src: ["./src/assets/fonts/DMSans.woff2"],
-            weight: "normal",
-            style: "normal",
-            display: "swap",
-          },
-        ],
-      },
+      provider: fontProviders.google(),
+      name: "Gideon Roman",
+      cssVariable: "--font-gideon-roman",
+      fallbacks: ["serif"],
+    },
+    {
+      provider: fontProviders.google(),
+      name: "Kode Mono",
+      cssVariable: "--font-kode-mono",
+      fallbacks: ["monospace"],
+      weights: ["400", "700"],
+    },
+    {
+      provider: fontProviders.google(),
+      name: "Carlito",
+      cssVariable: "--font-carlito",
+      fallbacks: ["sans-serif"],
+      weights: ["400", "700"],
+      styles: ["normal", "italic"],
     },
   ],
 

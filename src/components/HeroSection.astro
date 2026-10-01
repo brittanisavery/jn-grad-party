@@ -2,6 +2,7 @@
   <div class="section-container hero-container">
     <div class="hero-content">
       <h1 class="hero-title">Jeyda's Graduation Celebration</h1>
+      <p id="hero-countdown"></p>
       <p class="hero-subtitle">until the #NextChapter</p>
     </div>
     <div class="hero-content">
@@ -84,3 +85,19 @@
     </style>
   </div>
 </section>
+
+<script>
+  import countdown from "@utils/countdown.js";
+
+  function updateCountdown(current) {
+    const countdownElement = document.querySelector("#hero-countdown");
+    if (countdownElement) {
+      countdownElement.textContent = current.toString();
+    }
+  }
+  setInterval(() => {
+    const current = countdown(new Date(), new Date("2027-05-30T00:00:00Z"));
+    console.log(current);
+    updateCountdown(current);
+  }, 1000);
+</script>

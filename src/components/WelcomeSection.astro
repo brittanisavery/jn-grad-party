@@ -1,0 +1,153 @@
+<section id="hero" class="hero">
+  <div class="section-container hero-container">
+    <div class="hero-content">
+      <h1 class="hero-title">Jeyda's Graduation Celebration</h1>
+      <p class="hero-subtitle" style="font-style: italic;">Only</p>
+      <div class="countdown-wrapper">
+        <div class="countdown">
+          <span class="countdown-value" id="countdown-month">0</span>
+          <span class="countdown-label">Months</span>
+        </div>
+        <div class="countdown">
+          <span class="countdown-value" id="countdown-day">0</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown">
+          <span class="countdown-value" id="countdown-hour">0</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+      </div>
+      <p class="hero-subtitle">until the #NextChapter</p>
+    </div>
+    <div class="hero-content">
+      <img
+        src="https://placehold.co/400x600"
+        alt="Jeyda's Graduation Celebration"
+      />
+    </div>
+  </div>
+
+  <style>
+    .hero {
+      min-height: 100vh;
+      padding-block: 6.688rem var(--px-56);
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-container {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      gap: var(--px-64);
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-title {
+      margin-bottom: var(--px-20);
+      font-size: clamp(var(--text-4xl), 6vw, var(--text-6xl));
+      font-family: var(--font-gideon-roman);
+      line-height: 1.2;
+      color: var(--color-text-sage);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(var(--text-xl), 2vw, var(--text-2xl));
+      line-height: 1.5;
+    }
+
+    .countdown-wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: var(--px-32);
+      margin-bottom: var(--px-24);
+      margin-top: var(--px-24);
+    }
+
+    .countdown {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .countdown-value {
+      font-size: clamp(var(--px-48), 10vw, var(--px-96));
+      font-family: var(--font-allura);
+      display: block;
+      line-height: 1;
+      color: var(--color-text-sage);
+    }
+
+    .countdown-label {
+      font-size: clamp(var(--text-base), 1.5vw, var(--text-lg));
+      display: block;
+    }
+
+    @media screen and (max-width: 64rem) {
+      .hero-container {
+        gap: var(--px-32);
+      }
+
+      .hero-content {
+        max-width: 100%;
+      }
+
+      .hero-title {
+        line-height: 1.3;
+      }
+    }
+
+    @media screen and (max-width: 59.375rem) {
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-container {
+        flex-direction: column;
+        gap: var(--px-32);
+      }
+
+      .hero-title {
+        margin-bottom: var(--px-24);
+      }
+
+      .hero-cta {
+        column-gap: var(--px-32);
+      }
+
+      .video-wrapper {
+        min-height: 18.75rem;
+      }
+    }
+  </style>
+
+  <script>
+    import countdown, { Timespan } from "@utils/countdown";
+
+    function updateCountdown(current: Timespan) {
+      const countdownMonth = document.querySelector("#countdown-month");
+      const countdownDay = document.querySelector("#countdown-day");
+      const countdownHour = document.querySelector("#countdown-hour");
+
+      if (countdownMonth) {
+        countdownMonth.textContent = current.months?.toString() || "0";
+      }
+      if (countdownDay) {
+        countdownDay.textContent = current.days?.toString() || "0";
+      }
+      if (countdownHour) {
+        countdownHour.textContent = current.hours?.toString() || "0";
+      }
+    }
+    const current = countdown(new Date(), new Date("2027-05-30T00:00:00Z"));
+    updateCountdown(current);
+    setInterval(() => {
+      const current = countdown(new Date(), new Date("2027-05-30T00:00:00Z"));
+      console.log(current);
+      updateCountdown(current);
+    }, 600000);
+  </script>
+</section>

@@ -23,10 +23,15 @@ export default defineConfig({
     },
     {
       provider: fontProviders.google(),
-      name: "Kode Mono",
-      cssVariable: "--font-kode-mono",
-      fallbacks: ["monospace"],
-      weights: ["400", "700"],
+      name: "Petit Formal Script",
+      cssVariable: "--font-petit-formal-script",
+      fallbacks: ["script"],
+    },
+    {
+      provider: fontProviders.google(),
+      name: "Allura",
+      cssVariable: "--font-allura",
+      fallbacks: ["script"],
     },
     {
       provider: fontProviders.google(),

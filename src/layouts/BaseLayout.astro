@@ -58,7 +58,8 @@ const schemaData = {
     <!-- Preload fonts -->
     <Font cssVariable="--font-carlito" />
     <Font cssVariable="--font-gideon-roman" />
-    <Font cssVariable="--font-kode-mono" />
+    <Font cssVariable="--font-petit-formal-script" />
+    <Font cssVariable="--font-allura" />
 
     <meta name="generator" content={Astro.generator} />
 
@@ -108,7 +109,11 @@ const schemaData = {
     <a href="#main" class="skip-link">Skip to content</a>
 
     <Header />
-    <main id="main" tabindex="-1">
+    <main
+      id="main"
+      tabindex="-1"
+      style="background-color: var(--color-light-sage);"
+    >
       <slot />
     </main>
     <Footer />

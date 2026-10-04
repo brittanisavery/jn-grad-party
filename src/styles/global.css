@@ -21,6 +21,15 @@ p {
   opacity: 0.8;
 }
 
+.icon {
+  display: inline-block;
+  width: var(--px-24);
+  height: var(--px-24);
+  margin-right: var(--px-8);
+  vertical-align: text-bottom;
+  font-family: var(--font-material-symbols-rounded);
+}
+
 .section-container {
   width: 100%;
   max-width: 90rem;
@@ -65,7 +74,7 @@ p {
 }
 
 .btn--primary {
-  background-color: var(--color-primary);
+  background-color: var(--color-dark-sage);
   color: var(--color-white);
   border-radius: var(--px-4);
   font-size: var(--text-xs);

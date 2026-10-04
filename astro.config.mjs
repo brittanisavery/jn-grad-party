@@ -41,6 +41,12 @@ export default defineConfig({
       weights: ["400", "700"],
       styles: ["normal", "italic"],
     },
+    {
+      provider: fontProviders.fontsource(),
+      name: "Material Symbols Rounded",
+      cssVariable: "--font-material-symbols-rounded",
+      fallbacks: ["sans-serif"],
+    },
   ],
 
   integrations: [sitemap(), favicons()],

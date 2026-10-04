@@ -1,57 +1,34 @@
 ---
 import BaseSwiper from "./BaseSwiper.astro";
 import { Image } from "astro:assets";
-import before1Image from "/src/assets/images/before1.png";
-import after1Image from "/src/assets/images/after1.png";
-import before2Image from "/src/assets/images/before2.png";
-import after2Image from "/src/assets/images/after2.png";
+import hiltonOakLawn from "@assets/images/hilton-oak-lawn.jpg";
+import sheratonRiverwalk from "@assets/images/sheraton-riverwalk.jpg";
 
-const projects = [
+const hotels = [
   {
-    id: 1,
-    images: {
-      before: {
-        src: before1Image,
-        alt: "Unfinished, under renovation with construction tools, exposed wiring, and partially installed marble-patterned tiles.",
-      },
-      after: {
-        src: after1Image,
-        alt: "A modern, open-concept living space with a wooden table, chairs, and a metal staircase. The room is lit by ceiling lights and natural sunlight from large windows.",
-      },
-    },
-    info: {
-      challenge: {
-        title: "Client's Challenge",
-        text: "We wanted to transform our unfinished space into a modern, functional home with an open-concept design that maximizes space, brings in plenty of natural light, and fits seamlessly into our daily lives.",
-      },
-      result: {
-        title: "Result",
-        text: "Our home now feels more open and airy. The transformation has expanded our living area, making every room feel larger and brighter. With a design that prioritizes natural light, our home is now perfectly set up for everyday living and family moments.",
-      },
-    },
+    name: "Hilton Chicago/Oak Lawn",
+    address: "9333 S Cicero Ave, Oak Lawn, IL 60453",
+    directions: "https://maps.app.goo.gl/MWoGxaddbN6kQGQ5A",
+    website:
+      "https://www.hilton.com/en/hotels/chioahh-hilton-chicago-oak-lawn/",
+    checkIn: "3:00 PM",
+    checkOut: "11:00 AM",
+    image: hiltonOakLawn,
+    subtitle: "Stylish stay close to Midway Airport",
+    description:
+      "Conveniently located in Oak Lawn, the Hilton Chicago/Oak Lawn hotel is within five miles of Midway Airport, and offers a free airport shutt`le. Downtown is easily accessible via the Oak Lawn Metro, a half mile away. During your stay, enjoy South Side staples and cocktails at the restaurant. They also offer modern rooms, an indoor pool, a fitness center, versatile meeting space, and EV charging.",
   },
   {
-    id: 2,
-    images: {
-      before: {
-        src: before2Image,
-        alt: "An older kitchen with white cabinets, beige tile flooring, and white appliances.",
-      },
-      after: {
-        src: after2Image,
-        alt: "A modern kitchen with dark wood cabinets, stainless steel appliances, and a stone backsplash.",
-      },
-    },
-    info: {
-      challenge: {
-        title: "Client's Challenge",
-        text: "Our kitchen felt outdated. The all-white design was plain, and the layout wasn't as functional as it could be. We wanted a space with better lighting that made cooking more enjoyable.",
-      },
-      result: {
-        title: "Result",
-        text: "Now, our kitchen feels completely renewed. The improved lighting makes the space brighter and more welcoming, while the new wood-style elements fit perfectly with our vision.",
-      },
-    },
+    name: "Sheraton Grand Chicago Riverwalk",
+    address: "301 E North Water St, Chicago, IL 60611",
+    directions: "https://maps.app.goo.gl/U5wSndhXHmxHavVJ7",
+    website: "https://www.sheraton.com/en/hotels/grand-chicago-riverwalk/",
+    checkIn: "4:00 PM",
+    checkOut: "12:00 PM",
+    image: sheratonRiverwalk,
+    subtitle: "Upscale hotel near Michigan Avenue",
+    description:
+      "Located close to Millennium Park and 875 North Michigan Avenue, Sheraton Grand Chicago Riverwalk provides a grocery/convenience store, a terrace, and a coffee shop/cafe. At the 3 on-site restaurants, enjoy breakfast, lunch, dinner, light fare, and American cuisine. Free WiFi in public areas is available to all guests, along with a garden and dry cleaning/laundry services.",
   },
 ];
 ---
@@ -60,15 +37,19 @@ const projects = [
   <div class="section-container">
     <span class="section-tag">Where to Stay</span>
     <h2 class="section-title">Hotel Information</h2>
+    <p class="section-text">
+      If you're traveling for the event, we've partnered with a couple of great
+      hotels to offer you exclusive rates and amenities.
+    </p>
     <BaseSwiper sliderName="portfolio">
       {
-        projects.map((project) => (
+        hotels.map((hotel) => (
           <div class="swiper-slide">
             <div class="project-image">
               <Image
                 class="image after active"
-                src={project.images.after.src}
-                alt={project.images.after.alt}
+                src={hotel.image}
+                alt={hotel.name}
                 width={1144}
                 height={800}
                 aria-hidden="false"
@@ -76,16 +57,35 @@ const projects = [
             </div>
             <div class="project-info">
               <div class="info-section">
-                <h3 class="section-subtitle info-title">
-                  {project.info.challenge.title}
-                </h3>
-                <p class="info-text">{project.info.challenge.text}</p>
+                <h3 class="section-subtitle info-title">{hotel.name}</h3>
+                <p class="info-text">
+                  <a
+                    href={hotel.directions}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span class="text-link">{hotel.address}</span>&nbsp;
+                    <span class="icon">open_in_new</span>
+                  </a>
+                  <br />
+                  Check-in: {hotel.checkIn}
+                  <br />
+                  Check-out: {hotel.checkOut}
+                </p>
               </div>
               <div class="info-section">
-                <h3 class="section-subtitle info-title">
-                  {project.info.result.title}
-                </h3>
-                <p class="info-text">{project.info.result.text}</p>
+                <h3 class="section-subtitle info-title">{hotel.subtitle}</h3>
+                <p class="info-text">{hotel.description}</p>
+                <div>
+                  <a
+                    class="btn btn--primary"
+                    href={hotel.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Book Now
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -119,6 +119,12 @@ const projects = [
   .swiper-slide-next {
     opacity: 0;
     transform: scale(0.75);
+  }
+
+  .section-text {
+    font-size: clamp(var(--text-xl), 2vw, var(--text-2xl));
+    line-height: 1.5;
+    margin-bottom: var(--px-64);
   }
 
   .project-image {
@@ -187,6 +193,10 @@ const projects = [
     .swiper-slide {
       grid-template-columns: 1fr;
       gap: var(--px-32);
+    }
+
+    .section-text {
+      margin-bottom: var(--px-32);
     }
   }
 </style>

@@ -1,0 +1,106 @@
+---
+const activities = [
+  {
+    name: "See The Bean (Cloud Gate) at Millennium Park",
+    address: "201 E Randolph St, Chicago, IL 60602",
+    directions: "",
+    website:
+      "https://www.chicago.gov/city/en/depts/dca/supp_info/millennium_park.html",
+    description:
+      "Cloud Gate is a large, stainless steel, bean-shaped sculpture in Millennium Park. Snap a photo of your group's reflection in The Bean with Chicago's skyscrapers in the background and the clouds floating above.",
+  },
+  {
+    name: "Visit the Art Institute of Chicago",
+    address: "111 S Michigan Ave, Chicago, IL 60603",
+    directions: "",
+    website: "https://www.artic.edu/",
+    description:
+      "The Art Institute of Chicago is one of the oldest and largest art museums in the United States. It houses a collection of over 300,000 works of art, including paintings, sculptures, prints, drawings, and decorative arts from around the world.",
+  },
+  {
+    name: "Take a stroll along the Chicago Riverwalk",
+    address: "Chicago Riverwalk, Chicago, IL 60601",
+    directions: "",
+    website: "https://www.chicagoriverwalk.us/",
+    description:
+      "The Chicago Riverwalk is a pedestrian path along the south bank of the Chicago River. It features restaurants, bars, public art, and beautiful views of the city skyline.",
+  },
+  {
+    name: "Explore Navy Pier",
+    address: "600 E Grand Ave, Chicago, IL 60611",
+    directions: "",
+    website: "https://navypier.org/",
+    description:
+      "Navy Pier is a 3,300-foot-long pier on the Chicago shoreline of Lake Michigan. It features attractions such as the Centennial Wheel, Chicago Shakespeare Theater, and various restaurants and shops.",
+  },
+  {
+    name: "Take an Architecture Boat Tour",
+    address: "Chicago River, Chicago, IL 60601",
+    directions: "",
+    website: "https://www.architecture.org/tours/boat-tours/",
+    description:
+      "Chicago is known for its architecture, and one of the best ways to see it is from the water. Take a guided boat tour along the Chicago River to learn about the city's history and architecture.",
+  },
+];
+---
+
+<section id="things-to-do" class="recreation">
+  <div class="section-container">
+    <span class="section-tag">Things to Do</span>
+    <h2 class="section-title">Recreation Activities</h2>
+    <div class="activities-container">
+      {
+        activities.map((activity) => (
+          <div class="activity">
+            <h3 class="section-subtitle">{activity.name}</h3>
+            <p>{activity.description}</p>
+            <p>
+              <a
+                href={activity.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn--secondary"
+              >
+                Learn More
+              </a>
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <style>
+    .recreation {
+      padding-block: var(--px-56) var(--px-64);
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: border-box;
+    }
+
+    .activities-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
+      grid-auto-rows: minmax(150px, auto);
+      gap: 10px;
+      margin: 0 20px;
+    }
+
+    .activity {
+      /* needed for the flex layout*/
+      margin-left: 5px;
+      margin-right: 5px;
+      flex: 1 1 300px;
+    }
+
+    .activities-container > * {
+      background-color: var(--color-sage);
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 10px;
+    }
+  </style>
+</section>

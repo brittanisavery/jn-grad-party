@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import EventCountdown from "./EventCountdown.astro";
 ---
 
@@ -11,9 +12,11 @@ import EventCountdown from "./EventCountdown.astro";
       <p class="hero-subtitle">until the #NextChapter begins on May 30, 2027</p>
     </div>
     <div class="hero-content">
-      <img
-        src="https://placehold.co/400x600"
-        alt="Jeyda's Graduation Celebration"
+      <Image
+        src={"https://placehold.co/600x400.jpg?text=Jeyda+Placeholder+Image"}
+        alt="A picture of Jeyda, the graduate, smiling and holding her diploma."
+        width={400}
+        height={600}
       />
     </div>
   </div>

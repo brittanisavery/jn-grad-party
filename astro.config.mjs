@@ -14,6 +14,10 @@ export default defineConfig({
     inlineStylesheets: "always",
   },
 
+  image: {
+    remotePatterns: [{ protocol: "https" }],
+  },
+
   fonts: [
     {
       provider: fontProviders.google(),

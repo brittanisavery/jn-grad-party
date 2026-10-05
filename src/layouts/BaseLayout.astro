@@ -110,11 +110,7 @@ const schemaData = {
     <a href="#main" class="skip-link">Skip to content</a>
 
     <Header />
-    <main
-      id="main"
-      tabindex="-1"
-      style="background-color: var(--color-light-sage);"
-    >
+    <main id="main" tabindex="-1" class="main-content">
       <slot />
     </main>
     <Footer />
@@ -139,5 +135,10 @@ const schemaData = {
   .skip-link:focus-visible {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  .main-content {
+    min-height: 100vh;
+    background-color: var(--color-light-sage);
   }
 </style>

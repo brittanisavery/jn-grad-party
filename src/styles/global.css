@@ -51,7 +51,7 @@ p {
   font-weight: 500;
   font-family: var(--font-gideon-roman);
   line-height: 1.2;
-  color: var(--color-text-primary);
+  color: var(--color-golden);
 }
 
 .section-subtitle {

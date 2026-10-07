@@ -52,14 +52,16 @@ const activities = [
       {
         activities.map((activity) => (
           <div class="activity">
-            <h3 class="section-subtitle">{activity.name}</h3>
-            <p>{activity.description}</p>
+            <div class="activity-content">
+              <h3 class="section-subtitle">{activity.name}</h3>
+              <p>{activity.description}</p>
+            </div>
             <p>
               <a
+                class="learn-more"
                 href={activity.website}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-link"
               >
                 Learn More
               </a>
@@ -84,16 +86,37 @@ const activities = [
   }
 
   .activity {
-    /* needed for the flex layout*/
-    margin-left: 5px;
-    margin-right: 5px;
-    flex: 1 1 300px;
-  }
-
-  .activities-container > * {
     background-color: var(--color-sage);
     border-radius: 5px;
-    padding: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
     margin-bottom: 10px;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 400px) {
+    .activity {
+      text-align: left;
+    }
+  }
+
+  .activity-content {
+    padding: 20px;
+  }
+
+  .learn-more {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background-color: var(--color-light-golden);
+    border: 1px solid var(--color-golden);
+    border-radius: 0 0 5px 5px;
+    color: var(--color-golden);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
   }
 </style>

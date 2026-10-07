@@ -72,6 +72,7 @@
   --color-sage: #adb699b8;
   --color-dark-sage: #5c6449;
   --color-golden: #876f16;
+  --color-light-golden: #e8deb3;
 
   /* Transitions */
   --ease-default: cubic-bezier(0, 0, 0.58, 1);

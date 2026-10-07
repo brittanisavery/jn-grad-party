@@ -1,0 +1,136 @@
+---
+import { Image } from "astro:assets";
+import deepDishPizza from "@assets/images/deep-dish-pizza.jpg";
+import italianBeefSandwich from "@assets/images/italian-beef-sandwich.jpg";
+import chicagoHotDog from "@assets/images/chicago-hot-dog.jpg";
+import maxwellStreetPolish from "@assets/images/maxwell-street-polish.jpg";
+import jibarito from "@assets/images/jibarito.jpg";
+import garrettsPopcorn from "@assets/images/garrett-style-popcorn.jpg";
+
+const foods = [
+  {
+    name: "Deep Dish Pizza",
+    image: deepDishPizza,
+    alt: "",
+    description:
+      "Deep-dish is Chicago’s most famous food: a buttery, high-walled pie built in reverse, with cheese on the bottom, chunky tomato sauce on top, and a thick cornmeal crust holding it all together. It was invented in Chicago in 1943 at Pizzeria Uno. A personal deep-dish runs about $12 to $16 in 2026; a large shared pie runs $30 or more and takes 30 to 45 minutes to bake.",
+  },
+  {
+    name: "Italian Beef Sandwich",
+    image: italianBeefSandwich,
+    alt: "",
+    description:
+      "The Italian beef is Chicago’s signature sandwich: thin-sliced, slow-roasted beef piled on a long Italian roll, soaked in seasoned pan juices (called gravy or jus), and topped with either sweet roasted peppers or spicy giardiniera. It was created by Chicago’s Italian-American community in the 1930s. Expect to pay about $8 to $11 in 2026, and be ready to order it the local way.",
+  },
+  {
+    name: "Chicago-Style Hot Dog",
+    image: chicagoHotDog,
+    alt: "",
+    description:
+      "A Chicago-style hot dog is an all-beef Vienna Beef frank on a steamed poppy-seed bun, topped with yellow mustard, chopped white onion, bright green sweet relish, tomato wedges, a dill pickle spear, two or three sport peppers, and a dash of celery salt. The one rule locals enforce: never ketchup. A dog runs about $4 to $6 in 2026.",
+  },
+  {
+    name: "Maxwell Street Polish",
+    image: maxwellStreetPolish,
+    alt: "",
+    description:
+      "The Maxwell Street Polish is a grilled Polish sausage on a bun, smothered in caramelized grilled onions and yellow mustard, usually with sport peppers on the side. It was born on the old Maxwell Street Market on the Near West Side and remains a late-night Chicago staple, priced around $6 to $8 in 2026.",
+  },
+  {
+    name: "Jibarito",
+    image: jibarito,
+    alt: "",
+    description:
+      "The jibarito is a Chicago original sandwich that swaps bread for two flattened, fried green plantains, layered with garlicky steak (or chicken or pork), lettuce, tomato, cheese, and mayo-garlic sauce. It was invented in Chicago in 1996 at the Puerto Rican restaurant Borinquen in Humboldt Park. Expect about $12 to $16 in 2026.",
+  },
+  {
+    name: "Garrett's Popcorn",
+    image: garrettsPopcorn,
+    alt: "",
+    description:
+      "Chicago’s signature snack is caramel-and-cheddar popcorn mix, popularized by Garrett Popcorn Shops and known citywide as “Chicago Mix.” A small bag runs about $8 to $12 in 2026. The salty-sweet combination of buttery CaramelCrisp and sharp CheeseCorn is a downtown staple and an easy edible souvenir.",
+  },
+];
+---
+
+<section id="what-to-eat">
+  <div class="section-container">
+    <span class="section-tag">What to Eat</span>
+    <h2 class="section-title">Chicago's Famous Food</h2>
+    <div class="foods-container">
+      {
+        foods.map((food) => (
+          <div class="food">
+            <Image
+              src={food.image}
+              alt={food.alt}
+              width={400}
+              height={300}
+              class="food-image"
+            />
+            <div class="food-text">
+              <h3 class="section-subtitle">{food.name}</h3>
+              <p>{food.description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    <p class="credit">
+      For more information on Chicago's famous food, check out this
+      <a
+        href="https://thebettervacation.com/chicago/famous-chicago-foods/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-link"
+      >
+        article</a
+      >
+      from Jamshed V Rajan at thebettervacation.com.
+    </p>
+  </div>
+
+  <style>
+    section {
+      padding-block: var(--px-56) var(--px-64);
+    }
+
+    .foods-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
+      grid-auto-rows: minmax(150px, auto);
+      gap: 10px;
+      margin: 0 20px;
+    }
+    .food {
+      /* needed for the flex layout*/
+      background-color: var(--color-sage);
+      border-radius: 5px;
+      margin-left: 5px;
+      margin-right: 5px;
+      margin-bottom: 10px;
+      text-align: justify;
+    }
+
+    .food-image {
+      width: 100%;
+      height: auto;
+      border-radius: 5px 5px 0 0;
+    }
+    .food-text {
+      padding: 20px;
+    }
+
+    @media (max-width: 400px) {
+      .food-text {
+        /*padding: 10px;*/
+        text-align: left;
+      }
+    }
+    .credit {
+      margin-top: 20px;
+      font-size: var(--text-sm);
+      text-align: center;
+    }
+  </style>
+</section>

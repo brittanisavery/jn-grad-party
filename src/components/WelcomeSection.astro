@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import EventCountdown from "./EventCountdown.astro";
-import gradImage from "@assets/images/grad1.jpeg";
+import gradImage from "@assets/images/grad1-cropped.jpg";
 ---
 
 <section id="hero" class="hero">
@@ -18,6 +18,7 @@ import gradImage from "@assets/images/grad1.jpeg";
         alt="A picture of Jeyda, the graduate, smiling and holding her diploma."
         width={400}
         height={600}
+        class="hero-image"
       />
     </div>
   </div>
@@ -50,6 +51,11 @@ import gradImage from "@assets/images/grad1.jpeg";
     .hero-subtitle {
       font-size: clamp(var(--text-xl), 2vw, var(--text-2xl));
       line-height: 1.5;
+    }
+
+    .hero-image {
+      border: 1px solid transparent;
+      border-radius: 20px;
     }
 
     @media screen and (max-width: 64rem) {

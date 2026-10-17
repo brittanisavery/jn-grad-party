@@ -4,6 +4,7 @@ import { SITE } from "./src/consts";
 
 import sitemap from "@astrojs/sitemap";
 import favicons from "astro-favicons";
+import gallery from "astro-gallery";
 
 // https://astro.build/config
 export default defineConfig({
@@ -53,7 +54,13 @@ export default defineConfig({
     },
   ],
 
-  integrations: [sitemap(), favicons()],
+  integrations: [
+    sitemap(),
+    favicons(),
+    gallery({
+      locale: "en-US",
+    }),
+  ],
 
   security: {
     csp: {

@@ -1,7 +1,7 @@
 {
-  "name": "one-space-away-html",
+  "name": "jeydas-last-chapter-27",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -12,6 +12,7 @@
     "@astrojs/sitemap": "^3.7.1",
     "astro": "^6.0.8",
     "astro-favicons": "^3.1.6",
+    "astro-gallery": "^1.4.0",
     "sharp": "^0.34.5",
     "swiper": "^11.2.10"
   }

@@ -5,10 +5,17 @@ import HotelSection from "@components/HotelSection.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import RecreationSection from "@components/RecreationSection.astro";
 import FoodSection from "@components/FoodSection.astro";
+import JustifiedGallery from "astro-gallery/components/JustifiedGallery.astro";
+import ImageGallery from "astro-gallery/components/ImageGallery.astro";
 ---
 
 <BaseLayout>
   <WelcomeSection />
+  <section>
+    <div class="section-container">
+      <ImageGallery folderPath="gallery"/>
+    </div>
+  </section>
   <HotelSection />
   <RecreationSection />
   <FoodSection />

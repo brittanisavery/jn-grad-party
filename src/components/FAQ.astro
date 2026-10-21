@@ -31,188 +31,257 @@ const faqItems = [
 
     <div class="faq-content">
       <div class="accordion">
-        {
-          faqItems.map((item) => (
-            <div class="accordion-item">
-              <button class="accordion-button">
-                <span class="button-text">{item.question}</span>
-                <svg
-                  class="button-icon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
+        <div class="accordion-item">
+          <button class="accordion-button">
+            <span class="button-text"
+              >When and where is the date of the graduation party?</span
+            >
+            <svg
+              class="button-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M12 5v14M5 12h14"></path>
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <div class="content-wrapper">
+              <p>
+                The graduation party is scheduled for Sunday, May 30, 2027 from
+                7PM to 10PM at Paradise Banquets, which is located on
+                <a
+                  href="https://maps.app.goo.gl/mte2mwjbor2Wamwk7"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <path d="M12 5v14M5 12h14" />
-                </svg>
-              </button>
-              <div class="accordion-content">
-                <div class="content-wrapper">
-                  <p>{item.answer}</p>
-                </div>
-              </div>
+                  <span class="text-link"
+                    >9220 S. Harlem Ave, Bridgeview, IL 60455</span
+                  >.
+                  <span class="icon no-margin">open_in_new</span>
+                </a> We can't wait to celebrate this special milestone with you!
+              </p>
             </div>
-          ))
-        }
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-button">
+            <span class="button-text"
+              >What is the dress code for the graduation party?</span
+            >
+            <svg
+              class="button-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M12 5v14M5 12h14"></path>
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <div class="content-wrapper">
+              <p>
+                There is no specific dress code or theme. We only ask that you
+                come dressed to party!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-button">
+            <span class="button-text"
+              >How can I send a gift to the graduate if I can't attend the
+              party?</span
+            >
+            <svg
+              class="button-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M12 5v14M5 12h14"></path>
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <div class="content-wrapper">
+              <p>
+                If you can't attend the party, you can send a monetary gift to
+                Jedya via Cash App ($whoamije) or contact Teisha for Zelle. Your
+                support and well wishes are greatly appreciated!
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</section>
 
-<style>
-  .faq-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--px-64);
-    align-items: start;
-  }
-
-  .faq-header {
-    position: sticky;
-    top: var(--px-32);
-    max-width: 80%;
-  }
-
-  .accordion {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .accordion-item {
-    border-bottom: var(--px-1) solid var(--color-primary);
-  }
-
-  .accordion-button {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: var(--px-16);
-    padding: var(--px-20) 0;
-    background: none;
-    border: none;
-    cursor: pointer;
-    text-align: left;
-    transition: all var(--transition-long);
-  }
-
-  .button-text {
-    font-size: var(--text-xl);
-    font-weight: 400;
-    transition: all var(--transition-long);
-  }
-
-  .button-icon {
-    width: var(--px-20);
-    height: var(--px-20);
-    transition: all var(--transition-long);
-    flex-shrink: 0;
-  }
-
-  .accordion-item.active .button-text {
-    font-weight: 500;
-  }
-
-  .accordion-item.active .button-icon {
-    transform: rotate(45deg);
-  }
-
-  .accordion-content {
-    height: 0;
-    overflow: hidden;
-    transition: height var(--transition-long);
-  }
-
-  .content-wrapper {
-    padding-bottom: 0.813rem;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: all var(--transition-long);
-  }
-
-  .accordion-item.active .content-wrapper {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .accordion-button:hover .button-text,
-    .accordion-button:hover .button-icon {
-      opacity: 0.65;
-    }
-  }
-
-  @media (max-width: 64rem) {
+  <style>
     .faq-container {
-      gap: var(--px-32);
-    }
-  }
-
-  @media (max-width: 48rem) {
-    .faq-container {
-      grid-template-columns: 1fr;
-      gap: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--px-64);
+      align-items: start;
     }
 
     .faq-header {
-      position: static;
-      max-width: none;
+      position: sticky;
+      top: var(--px-32);
+      max-width: 80%;
     }
 
-    .section-title {
-      margin-bottom: var(--px-44);
+    .no-margin {
+      margin: 0;
     }
-  }
-</style>
 
-<script>
-  function initFAQAccordion() {
-    const accordionContainer = document.querySelector(".faq-container");
+    .accordion {
+      display: flex;
+      flex-direction: column;
+    }
 
-    if (!accordionContainer) return;
+    .accordion-item {
+      border-bottom: var(--px-1) solid var(--color-primary);
+    }
 
-    accordionContainer.addEventListener("click", (e) => {
-      const button = (e.target as HTMLElement).closest(".accordion-button");
+    .accordion-button {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--px-16);
+      padding: var(--px-20) 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      transition: all var(--transition-long);
+    }
 
-      if (!button) return;
+    .button-text {
+      font-size: var(--text-xl);
+      font-weight: 400;
+      transition: all var(--transition-long);
+    }
 
-      const item = button.closest(".accordion-item");
-      const content = item?.querySelector<HTMLElement>(".accordion-content");
+    .button-icon {
+      width: var(--px-20);
+      height: var(--px-20);
+      transition: all var(--transition-long);
+      flex-shrink: 0;
+    }
 
-      if (!item || !content) return;
+    .accordion-item.active .button-text {
+      font-weight: 500;
+    }
 
-      const isActive = item.classList.contains("active");
+    .accordion-item.active .button-icon {
+      transform: rotate(45deg);
+    }
 
-      document.querySelectorAll(".accordion-item.active").forEach((accItem) => {
-        const accContent =
-          accItem.querySelector<HTMLElement>(".accordion-content");
-        const accButton = accItem.querySelector(".accordion-button");
+    .accordion-content {
+      height: 0;
+      overflow: hidden;
+      transition: height var(--transition-long);
+    }
 
-        if (!accContent || !accButton) return;
+    .content-wrapper {
+      padding-bottom: 0.813rem;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all var(--transition-long);
+    }
 
-        if (accItem !== item) {
-          accItem.classList.remove("active");
-          accContent.style.height = "0";
-          accButton.setAttribute("aria-expanded", "false");
-          accContent.setAttribute("aria-hidden", "true");
+    .accordion-item.active .content-wrapper {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .accordion-button:hover .button-text,
+      .accordion-button:hover .button-icon {
+        opacity: 0.65;
+      }
+    }
+
+    @media (max-width: 64rem) {
+      .faq-container {
+        gap: var(--px-32);
+      }
+    }
+
+    @media (max-width: 48rem) {
+      .faq-container {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .faq-header {
+        position: static;
+        max-width: none;
+      }
+
+      .section-title {
+        margin-bottom: var(--px-44);
+      }
+    }
+  </style>
+
+  <script>
+    function initFAQAccordion() {
+      const accordionContainer = document.querySelector(".faq-container");
+
+      if (!accordionContainer) return;
+
+      accordionContainer.addEventListener("click", (e) => {
+        const button = (e.target as HTMLElement).closest(".accordion-button");
+
+        if (!button) return;
+
+        const item = button.closest(".accordion-item");
+        const content = item?.querySelector<HTMLElement>(".accordion-content");
+
+        if (!item || !content) return;
+
+        const isActive = item.classList.contains("active");
+
+        document
+          .querySelectorAll(".accordion-item.active")
+          .forEach((accItem) => {
+            const accContent =
+              accItem.querySelector<HTMLElement>(".accordion-content");
+            const accButton = accItem.querySelector(".accordion-button");
+
+            if (!accContent || !accButton) return;
+
+            if (accItem !== item) {
+              accItem.classList.remove("active");
+              accContent.style.height = "0";
+              accButton.setAttribute("aria-expanded", "false");
+              accContent.setAttribute("aria-hidden", "true");
+            }
+          });
+
+        if (!isActive) {
+          item.classList.add("active");
+          content.style.height = content.scrollHeight + "px";
+          button.setAttribute("aria-expanded", "true");
+          content.setAttribute("aria-hidden", "false");
+        } else {
+          item.classList.remove("active");
+          content.style.height = "0";
+          button.setAttribute("aria-expanded", "false");
+          content.setAttribute("aria-hidden", "true");
         }
       });
+    }
 
-      if (!isActive) {
-        item.classList.add("active");
-        content.style.height = content.scrollHeight + "px";
-        button.setAttribute("aria-expanded", "true");
-        content.setAttribute("aria-hidden", "false");
-      } else {
-        item.classList.remove("active");
-        content.style.height = "0";
-        button.setAttribute("aria-expanded", "false");
-        content.setAttribute("aria-hidden", "true");
-      }
-    });
-  }
-
-  initFAQAccordion();
-  document.addEventListener("astro:after-swap", initFAQAccordion);
-</script>
+    initFAQAccordion();
+    document.addEventListener("astro:after-swap", initFAQAccordion);
+  </script>
+</section>

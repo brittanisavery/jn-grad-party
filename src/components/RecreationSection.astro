@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import boatImage from "@assets/images/boat.jpg";
+
 const activities = [
   {
     name: "See The Bean (Cloud Gate) at Millennium Park",
@@ -48,6 +51,66 @@ const activities = [
   <div class="section-container">
     <span class="section-tag">What to Do</span>
     <h2 class="section-title">Recreation Activities</h2>
+    <div class="boat-container">
+      <h3 class="section-subtitle">
+        Chicago Signature Dinner Cruise on Lake Michigan
+      </h3>
+      <div class="boat-content">
+        <Image
+          src={boatImage}
+          alt="A boat on the Chicago River with the city skyline in the background."
+          width={600}
+          height={400}
+          class="boat-image"
+        />
+        <div class="boat-description">
+          <p class="important-note">
+            <b
+              >Note: This event is an optional activity for the graduation party
+              invitees.</b
+            >
+          </p>
+          <p>
+            Tickets are limited. To reserve, call <a href="tel:312-321-1241"
+              ><span class="text-link">312-321-1241</span></a
+            > and reserve under the following Booking ID: #87631497 and request general
+            seating.
+          </p>
+          <p>
+            Turn your dinner into an incredible night out with a delicious
+            chef-curated buffet for all ages savored alongside the breathtaking
+            backdrop of the city skyline. From the breezy open-air decks and
+            comfortable indoor spaces, you’ll soak in spectacular views of
+            Chicago’s iconic landmarks, such as Willis Tower and Navy Pier while
+            our DJ spins today’s top hits. This unforgettable dining experience
+            is complete with a fully stocked cash bar, games, and dancing into
+            the night!
+          </p>
+          <p>
+            Date: Friday, May 28th, 2027<br />
+            Boarding Time: 6:30 PM<br />
+            Time: 7:00 PM - 9:30 PM<br />
+            Meetup Location: <a
+              href="https://maps.google.com/?q=600+E+Grand+Ave,+Chicago,+IL+60611,+USA"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><span class="text-link"
+                >600 E Grand Ave, Chicago, IL 60611, USA</span
+              >&nbsp;<span class="icon">open_in_new</span></a
+            ><br />
+          </p>
+        </div>
+      </div>
+      <a
+        class="learn-more"
+        href="https://tix.cityexperiences.com/j/hbchico/98dc1b63599f9e900a59a1e4091d70cc8b2518dfc5d0910a"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Learn More
+      </a>
+    </div>
+
     <div class="activities-container">
       {
         activities.map((activity) => (
@@ -75,6 +138,27 @@ const activities = [
 <style>
   .recreation {
     padding-block: var(--px-56) var(--px-64);
+  }
+
+  .boat-container {
+    display: flex;
+    flex-direction: column;
+    /* gap: var(--px-20); */
+    margin: 0 25px;
+    margin-bottom: var(--px-40);
+    h3 {
+      margin-bottom: var(--px-20);
+    }
+  }
+  .boat-content {
+    display: flex;
+    flex-direction: row;
+    gap: var(--px-20);
+  }
+  .boat-description {
+    p {
+      margin-bottom: var(--px-20);
+    }
   }
 
   .activities-container {

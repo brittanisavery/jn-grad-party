@@ -6,13 +6,17 @@ import RecreationSection from "@components/RecreationSection.astro";
 import WelcomeSection from "@components/WelcomeSection.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import ImageGallery from "astro-gallery/components/ImageGallery.astro";
+import CarouselGallery from "astro-gallery/components/CarouselGallery.astro";
 ---
 
 <BaseLayout>
   <WelcomeSection />
   <section>
     <div class="section-container">
-      <ImageGallery folderPath="gallery" />
+      <span class="section-tag">How We Started</span>
+      <h2 class="section-title">Photo Gallery</h2>
+      <!-- <ImageGallery folderPath="gallery"  /> -->
+      <CarouselGallery folderPath="gallery" />
     </div>
   </section>
   <HotelSection />

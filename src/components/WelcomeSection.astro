@@ -1,37 +1,57 @@
 ---
-import { Image } from "astro:assets";
-import EventCountdown from "./EventCountdown.astro";
-import gradImage from "@assets/images/grad1-cropped.jpg";
-import JustifiedGallery from "astro-gallery/components/JustifiedGallery.astro";
 import Border from "@assets/images/border.svg";
+import gradImage from "@assets/images/grad1-cropped.jpg";
+import EventCountdown from "./EventCountdown.astro";
+import { Image } from "astro:assets";
 ---
 
 <section id="hero" class="hero">
-  <div class="section-container hero-container">
-    <div class="hero-content">
-      <p class="hero-caps">Chicago • Class of 2027</p>
-      <h1 class="hero-title">Jeyda's Last Lap</h1>
-      <p class="subtitle">The Grand Finale</p>
-      <Border height={150} />
-      <p>One last lap. One unforgettable night.</p>
-      <p>Celebrating Jeyda • Sunday, May 30, 2027</p>
-      <EventCountdown targetDate="2027-05-30T00:00:00Z" />
-    </div>
-    <div class="hero-content">
-      <Image
-        src={gradImage}
-        alt="A picture of Jeyda, the graduate, smiling and holding her diploma."
-        width={400}
-        height={600}
-        class="hero-image"
-      />
-    </div>
+  <div>
+    <p>Celebrating Jeyda</p>
+    <h1 class="title">Jeyda's Last Lap</h1>
+    <p class="subtitle">The Grad Finale: Class of 2027</p>
+    <Border height={150} />
+    <p>One last lap. One unforgettable night.</p>
+    <p>Chicago • Sunday, May 30, 2027</p>
+    <EventCountdown targetDate="2027-05-30T00:00:00Z" />
   </div>
-
-  <style>
-    .hero {
-      display: flex;
-      align-items: center;
-    }
-  </style>
+  <Image
+    src={gradImage}
+    alt="A picture of Jeyda, the graduate, smiling and holding her diploma."
+    width={400}
+    height={600}
+    class="main"
+  />
 </section>
+
+<style>
+  .hero {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-around; */
+  }
+
+  .title {
+    margin-bottom: var(--px-20);
+    font-size: clamp(var(--text-4xl), 6vw, var(--text-6xl));
+    font-family: var(--font-gideon-roman);
+    line-height: 1.2;
+    color: var(--color-text-sage);
+  }
+  .subtitle {
+    text-transform: uppercase;
+  }
+
+  .main {
+    border: 1px solid transparent;
+    border-radius: 5%;
+    padding: var(--px-12);
+  }
+
+  @media screen and (max-width: 59.375rem) {
+    .hero {
+      flex-direction: column;
+    }
+  }
+</style>

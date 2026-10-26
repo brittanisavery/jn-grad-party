@@ -5,7 +5,7 @@ import EventCountdown from "./EventCountdown.astro";
 import { Image } from "astro:assets";
 ---
 
-<section id="hero" class="hero">
+<section id="hero" class="hero section-container">
   <div>
     <p>Celebrating Jeyda</p>
     <h1 class="title">Jeyda's Last Lap</h1>
@@ -29,7 +29,8 @@ import { Image } from "astro:assets";
     text-align: center;
     display: flex;
     align-items: center;
-    /* justify-content: space-around; */
+    justify-content: center;
+    gap: var(--px-40);
   }
 
   .title {
@@ -52,6 +53,7 @@ import { Image } from "astro:assets";
   @media screen and (max-width: 59.375rem) {
     .hero {
       flex-direction: column;
+      gap: var(--20-px);
     }
   }
 </style>

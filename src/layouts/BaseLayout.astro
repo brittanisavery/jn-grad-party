@@ -14,7 +14,7 @@ const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 const {
   companyName = SITE.COMPANY_NAME,
   legalName = SITE.LEGAL_NAME,
-  title = `${SITE.COMPANY_NAME}: ${SITE.TITLE}`,
+  title = `${SITE.TITLE} | ${SITE.COMPANY_NAME}`,
   description = SITE.DESCRIPTION,
   canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
   ogImage = SITE.OG_IMAGE,

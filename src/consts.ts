@@ -2,9 +2,9 @@ import type { Site } from "./types";
 
 export const SITE: Site = {
   COMPANY_NAME: "Avery Incorporated",
-  TITLE: "Jeyda's Graduation Celebration",
+  TITLE: "Jeyda's Last Lap: The Grand Finale",
   DESCRIPTION:
-    "Celebrating Jeyda's Graduation with a special event on May 30, 2027.",
+    "One last lap. One unforgettable night. The journey made her. The finish line celebrates her.",
   CANONICAL_URL: import.meta.env.DEV
     ? "http://localhost:4321"
     : "https://jn-grad-party.netlify.app/",

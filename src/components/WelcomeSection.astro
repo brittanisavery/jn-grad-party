@@ -6,7 +6,7 @@ import { Image } from "astro:assets";
 ---
 
 <section id="hero" class="hero section-container">
-  <div>
+  <div class="content">
     <p>&nbsp;</p>
     <h1 class="title">Jeyda's Last Lap</h1>
     <p class="subtitle">The Grad Finale: Class of 2027</p>
@@ -14,11 +14,18 @@ import { Image } from "astro:assets";
     <p>One last lap. One unforgettable night.</p>
     <p>Chicago • Sunday, May 30, 2027</p>
     <EventCountdown targetDate="2027-05-30T00:00:00Z" />
+    <a
+      class="btn btn--primary"
+      href="https://forms.gle/5vaTo3md1RzEnfwT6"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Save your spot!
+    </a>
   </div>
   <Image
     src={gradImage}
     alt="A picture of Jeyda, the graduate, smiling and holding her diploma."
-    width={400}
     height={600}
     class="main"
   />
@@ -46,14 +53,18 @@ import { Image } from "astro:assets";
 
   .main {
     border: 1px solid transparent;
-    border-radius: 5%;
-    padding: var(--px-12);
+    border-radius: 10px;
   }
 
   @media screen and (max-width: 59.375rem) {
     .hero {
       flex-direction: column;
       gap: var(--20-px);
+    }
+
+    .main {
+      padding: var(--px-12) 0px;
+      border-radius: 20px;
     }
   }
 </style>

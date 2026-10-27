@@ -77,7 +77,6 @@ p {
   background-color: var(--color-dark-sage);
   color: var(--color-white);
   border-radius: var(--px-4);
-  font-size: var(--text-xs);
   letter-spacing: 0.085em;
   font-weight: 700;
   position: relative;

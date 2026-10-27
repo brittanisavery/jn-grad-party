@@ -29,6 +29,12 @@
           <a href="#need-to-know" class="nav-link">Need to Know</a>
         </li>
       </ul>
+      <a
+        href="https://forms.gle/5vaTo3md1RzEnfwT6"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn--primary nav-button">RSVP</a
+      >
     </div>
 
     <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -84,7 +90,10 @@
     background-color: currentColor;
     transition: transform var(--transition-medium);
   }
-
+  .nav-content {
+    display: flex;
+    align-items: center;
+  }
   .nav-menu {
     display: flex;
   }
@@ -102,6 +111,10 @@
   .nav-link:active {
     opacity: 1;
     transform: scale(0.98);
+  }
+
+  .nav-button {
+    padding: var(--px-8) var(--px-16);
   }
 
   .desktop-cta {
@@ -197,10 +210,15 @@
       transition: right 0.3s ease;
       box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
       justify-content: flex-start;
+      align-items: flex-start;
     }
 
     .nav-content.active {
       right: 0;
+    }
+
+    .nav-button {
+      width: 100%;
     }
 
     .nav-menu {

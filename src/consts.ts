@@ -8,7 +8,7 @@ export const SITE: Site = {
     "One last lap. One unforgettable night. The journey made her. The finish line celebrates her. Come and celebrate Jeyda's graduation on May 30, 2027 in Chicago!",
   CANONICAL_URL: import.meta.env.DEV
     ? "http://localhost:4321"
-    : "https://jn-grad-party.netlify.app/",
+    : "https://jeydaslastchapter27.averyincorporated.com/",
   LOCALE: "en",
   ADDRESS: "9220 S Harlem Ave, Bridgeview, IL 60455",
   OG_IMAGE: "/meta-image.jpg",
